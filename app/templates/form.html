@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Satisfação</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>Pesquisa de Satisfação</h1>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/" class="btn btn-info">Voltar</a>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <form name="form" id="form" method="post">
+            {% csrf_token %}
+
+            <div class="form-group mt-4">
+                <label for="atendimento">O atendimento do funcionario foi cordial e atencioso? </label>
+                <select class="form-group mt-4" name="atendimento" id="atendimento" required>
+                    <option value="-1">😡</option>
+                    <option value="-2">🙁</option>
+                    <option value="0">😐</option>
+                    <option value="1">🙂</option>
+                    <option value="2">😀</option>                       
+                </select><br/> <!--{{form.atendimento}}-->
+                <label for="pontualidade">Quanto ao tempo para a chegada do funcionario, o que lhe pareceu? </label>
+                <select class="form-group mt-4" name="pontualidade" id="pontualidade" required>
+                    <option value="-1">😡</option>
+                    <option value="-2">🙁</option>
+                    <option value="0">😐</option>
+                    <option value="1">🙂</option>
+                    <option value="2">😀</option>                      
+                </select><br/> <!--{{form.pontualidade}}-->
+                <label for="qualidade">O servico realizado foi bem feito? </label>
+                <select class="form-group mt-4" name="qualidade" id="qualidade" required>
+                    <option value="-1">😡</option>
+                    <option value="-2">🙁</option>
+                    <option value="0">😐</option>
+                    <option value="1">🙂</option>
+                    <option value="2">😀</option>                        
+                </select><br/> <!--{{form.qualidade}}-->
+            </div>
+            <input type="submit" class="btn-success" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>
