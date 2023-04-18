@@ -10,34 +10,96 @@
 </head>
 <body>
     <div class="App" style="color: white">
-        <header class="App-header text-center" style="background-color: #282c34">
-            <h1>Avaliar Funcionário</h1>
-            <p class="small">Avalie o funcionário para retornar um feedback do seu serviço</p>
-            <img src="/img/happyhorse.png" class="App-logo"/>
+        <header class="App-header text-center" style="background-color: #CA9DF0">
+            <br><h1>Avaliar Funcionário</h1>
+            <p class="small">Avalie o funcionário para retornar um feedback do seu serviço</p><br>
         </header>
     </div>
 
-    <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/form" class="btn btn-success">Avaliar</a>
+    <div class="col-8 m-auto pt-4 pb-4 text-center">
+        <a href="/form" class="btn text-white" style="background-color: #8352F0">Avaliar</a>
     </div>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="text-white" style="background-color: #CA9DF0">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Atendimento</th>
                     <th scope="col">Pontualidade</th>
                     <th scope="col">Qualidade</th>
+                    <th scope="col">Avaliação Geral</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>e</td>
-                    <td>f</td>
-                    <td>g</td>
-                </tr>
+            {% for dbs in db %}
+                    <tr>
+                        <th>{{dbs.id}}</th>
+                        {% if dbs.atendimento == -2 %}
+                            <td>😡</td>
+                        {% endif %}
+                        {% if dbs.atendimento == -1 %}
+                            <td>🙁</td>
+                        {% endif %}
+                        {% if dbs.atendimento == 0 %}
+                            <td>😐</td>
+                        {% endif %}
+                        {% if dbs.atendimento == 1 %}
+                            <td>🙂</td>
+                        {% endif %}
+                        {% if dbs.atendimento == 2 %}
+                            <td>😀</td>
+                        {% endif %}
+
+                        {% if dbs.pontualidade == -2 %}
+                            <td>😡</td>
+                        {% endif %}
+                        {% if dbs.pontualidade == -1 %}
+                            <td>🙁</td>
+                        {% endif %}
+                        {% if dbs.pontualidade == 0 %}
+                            <td>😐</td>
+                        {% endif %}
+                        {% if dbs.pontualidade == 1 %}
+                            <td>🙂</td>
+                        {% endif %}
+                        {% if dbs.pontualidade == 2 %}
+                            <td>😀</td>
+                        {% endif %}
+
+                        {% if dbs.qualidade == -2 %}
+                            <td>😡</td>
+                        {% endif %}
+                        {% if dbs.qualidade == -1 %}
+                            <td>🙁</td>
+                        {% endif %}
+                        {% if dbs.qualidade == 0 %}
+                            <td>😐</td>
+                        {% endif %}
+                        {% if dbs.qualidade == 1 %}
+                            <td>🙂</td>
+                        {% endif %}
+                        {% if dbs.qualidade == 2 %}
+                            <td>😀</td>
+                        {% endif %}
+
+                        {% if dbs.media == -2 or dbs.media < -1.5 %}
+                            <td>😡</td>
+                        {% endif %}
+                        {% if dbs.media > -1.5 and dbs.media < -0.5 %}
+                            <td>🙁</td>
+                        {% endif %}
+                        {% if dbs.media > -0.5 and dbs.media < 0.5 %}
+                            <td>😐</td>
+                        {% endif %}
+                        {% if dbs.media > 0.5 and dbs.media < 1.5 %}
+                            <td>🙂</td>
+                        {% endif %}
+                        {% if dbs.media == 2 or dbs.media > 1.5 %}
+                            <td>😀</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
