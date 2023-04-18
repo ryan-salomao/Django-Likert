@@ -43,3 +43,10 @@ body {
   .small {
     font-size: 0.75rem;
   }
+
+  .Forms {
+    font-color: white
+    border-radius: 20px;
+    background-color: pink;
+    padding: 20px;
+  }
